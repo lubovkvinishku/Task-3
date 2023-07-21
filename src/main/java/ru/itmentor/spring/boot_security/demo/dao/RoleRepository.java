@@ -11,5 +11,5 @@ import java.util.List;
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
     @Query("select b from Role b where b.id = :id")
-    User findByName(@Param("id") String id);
+    User findByID(@Param("id") String id);
 }
