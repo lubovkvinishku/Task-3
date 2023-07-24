@@ -29,16 +29,6 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @GetMapping() //метод предыдущей задачи
-//    public String userInfo(Principal principal, Model model) {
-//        model.addAttribute("user", userService.getByName(principal.getName()));
-//        return "show2";
-//    }
-//    @GetMapping()
-//    public List<User> showUsers() {
-//        List<User> allUsers = userService.getAll();
-//        return allUsers;
-//    }
 
     @GetMapping
     public ResponseEntity<User> getUserInfo(Principal principal) {
@@ -51,12 +41,7 @@ public class UserController {
 
     }
 
-//     @GetMapping("/{id}")
-//    public String show(@PathVariable("id")Long id, Model model) {
-//        model.addAttribute("user", userService.getById(id));
-//
-//        return "show";
-//    }
+
 
 
 }

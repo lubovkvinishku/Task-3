@@ -23,7 +23,6 @@ public class AdminController {
     private final UserService userService;
 
     @Autowired
-
     public AdminController(RoleService roleDAO, UserService userService) {
         this.roleDAO = roleDAO;
         this.userService = userService;
@@ -31,7 +30,7 @@ public class AdminController {
 
     @Secured({"ROLE_ADMIN"})
     @GetMapping("/getuser/{id}")
-    public User getUser (@PathVariable int id) {
+    public User getUser (@PathVariable long id) {
         User user = userService.getById(id);
         return user;
     }
@@ -61,42 +60,6 @@ public class AdminController {
     }
 
 
-//    @GetMapping()
-//    public String index(Model model) {
-//        model.addAttribute("users", userService.getAll());
-//        return "index";
-//    }
-
-//    @GetMapping("/new")
-//    public String newUser(@ModelAttribute("user") User user) {
-//        return "new";
-//    }
-//    @PostMapping("/new")
-//    public String create(@ModelAttribute("user") User user) {
-//        String string = new BCryptPasswordEncoder().encode(user.getPassword());
-//        user.setPass(string);
-//        List<Role> list = new ArrayList<>();
-//        list.add(roleDAO.getById(1L));
-//        user.setRoles(list);
-//        userService.addUser(user);
-//        return "redirect:/admin";
-//    }
-//    @GetMapping("/{id}/edit")
-//    public String edit(Model model, @PathVariable("id") Long id) {
-//        model.addAttribute("user", userService.editUser(userService.getById(id)));
-//        return "edit";
-//    }
-//
-//    @PatchMapping("/{id}/edit")
-//    public String update(@ModelAttribute("user") User user) {
-//        userService.editUser(user);
-//        return "redirect:/admin";
-//    }
-//    @DeleteMapping("/{id}")
-//    public String delete(@PathVariable("id") Long id) {
-//        userService.deleteUser(id);
-//        return "redirect:/admin";
-//    }
 
 
 }
